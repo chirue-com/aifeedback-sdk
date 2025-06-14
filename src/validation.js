@@ -1,7 +1,7 @@
 import { createError } from './errors';
 
 export function validateFeedbackData(feedbackData) {
-  if (!feedbackData || typeof feedbackData !== 'object') {
+  if (!feedbackData || typeof feedbackData !== 'object' || Array.isArray(feedbackData)) {
     return createError('INVALID_DATA', 'feedbackData must be an object.');
   }
 
@@ -18,7 +18,7 @@ export function validateFeedbackData(feedbackData) {
   }
 
   if (
-    feedbackComment &&
+    feedbackComment !== undefined &&
     (typeof feedbackComment !== 'string' || feedbackComment.length > 500)
   ) {
     return createError(
