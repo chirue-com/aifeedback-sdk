@@ -12,13 +12,13 @@ const mockPerformSubmission = performSubmission;
 describe('FeedbackSDK', () => {
   const validConfig = {
     serviceId: 'test-service-id',
-    dsn: 'https://api.example.com'
+    dsn: 'https://api.example.com',
   };
 
   const validFeedbackData = {
     feedbackRating: 'good',
     feedbackComment: 'Great service!',
-    durationSec: 15
+    durationSec: 15,
   };
 
   beforeEach(() => {
@@ -57,7 +57,7 @@ describe('FeedbackSDK', () => {
 
       FeedbackSDK.init({
         serviceId: 'test-service',
-        dsn: 'https://api.example.com/'
+        dsn: 'https://api.example.com/',
       });
 
       await FeedbackSDK.submit(validFeedbackData);
@@ -75,7 +75,7 @@ describe('FeedbackSDK', () => {
       // Create a fresh import to ensure clean state
       jest.resetModules();
       const { default: FreshFeedbackSDK } = await import('../index');
-      
+
       await expect(FreshFeedbackSDK.submit(validFeedbackData)).rejects.toThrow(
         'FeedbackSDK.submit() called before init(). Please call FeedbackSDK.init() first.'
       );
@@ -84,9 +84,9 @@ describe('FeedbackSDK', () => {
     test('should reject if validation fails', async () => {
       const validationError = new Error('Invalid data');
       validationError.code = 'INVALID_DATA';
-      
+
       mockValidateFeedbackData.mockReturnValue(validationError);
-      
+
       FeedbackSDK.init(validConfig);
 
       await expect(FeedbackSDK.submit(validFeedbackData)).rejects.toBe(validationError);
@@ -109,7 +109,7 @@ describe('FeedbackSDK', () => {
 
     test('should resolve with the result from performSubmission', async () => {
       const apiResult = { id: '123', status: 'submitted' };
-      
+
       mockValidateFeedbackData.mockReturnValue(null);
       mockPerformSubmission.mockResolvedValue(apiResult);
 
@@ -121,7 +121,7 @@ describe('FeedbackSDK', () => {
     test('should reject with the error from performSubmission', async () => {
       const apiError = new Error('Network error');
       apiError.code = 'SERVER_ERROR';
-      
+
       mockValidateFeedbackData.mockReturnValue(null);
       mockPerformSubmission.mockRejectedValue(apiError);
 
@@ -130,4 +130,4 @@ describe('FeedbackSDK', () => {
       await expect(FeedbackSDK.submit(validFeedbackData)).rejects.toBe(apiError);
     });
   });
-}); 
+});

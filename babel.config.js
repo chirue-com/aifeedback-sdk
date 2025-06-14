@@ -5,9 +5,9 @@ module.exports = {
       {
         targets: {
           node: '18',
-          browsers: ['> 1%', 'last 2 versions', 'not dead']
-        }
-      }
-    ]
+          browsers: ['> 1%', 'last 2 versions', 'not dead'],
+        },
+      },
+    ],
   ],
-}; 
+};

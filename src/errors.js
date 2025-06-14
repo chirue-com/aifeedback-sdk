@@ -12,8 +12,7 @@ export async function createErrorFromResponse(response) {
     responseBody = {};
   }
 
-  const message =
-    responseBody.message || `Request failed with status ${response.status}`;
+  const message = responseBody.message || `Request failed with status ${response.status}`;
   let code = 'SERVER_ERROR';
 
   switch (response.status) {

@@ -45,4 +45,4 @@ When you're ready to submit your contribution, create a Pull Request from your f
 2.  Provide a clear description of the changes you've made.
 3.  Ensure all checks (like CI builds and linting) pass.
 
-We'll review your contribution as soon as we can. Thank you for your contribution! 
+We'll review your contribution as soon as we can. Thank you for your contribution!

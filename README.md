@@ -49,7 +49,7 @@ First, initialize the SDK. If you are using it via the `<script>` tag, it will b
 try {
   FeedbackSDK.init({
     serviceId: 'your-unique-service-id',
-    dsn: 'https://your-api-domain.com/api'
+    dsn: 'https://your-api-domain.com/api',
   });
 } catch (error) {
   console.error('SDK Initialization Failed:', error.message);
@@ -75,7 +75,7 @@ async function submitFeedback(feedbackData) {
 submitFeedback({
   feedbackRating: 'good',
   feedbackComment: 'This AI is very helpful!',
-  durationSec: 15.5
+  durationSec: 15.5,
 });
 ```
 

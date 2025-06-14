@@ -7,10 +7,7 @@ export function validateFeedbackData(feedbackData) {
 
   const { feedbackRating, feedbackComment, durationSec } = feedbackData;
 
-  if (
-    !feedbackRating ||
-    !['good', 'normal', 'bad'].includes(feedbackRating)
-  ) {
+  if (!feedbackRating || !['good', 'normal', 'bad'].includes(feedbackRating)) {
     return createError(
       'INVALID_DATA',
       'feedbackRating is required and must be "good", "normal", or "bad".'
@@ -27,14 +24,8 @@ export function validateFeedbackData(feedbackData) {
     );
   }
 
-  if (
-    durationSec !== undefined &&
-    (typeof durationSec !== 'number' || durationSec < 0)
-  ) {
-    return createError(
-      'INVALID_DATA',
-      'durationSec must be a non-negative number.'
-    );
+  if (durationSec !== undefined && (typeof durationSec !== 'number' || durationSec < 0)) {
+    return createError('INVALID_DATA', 'durationSec must be a non-negative number.');
   }
 
   return null;

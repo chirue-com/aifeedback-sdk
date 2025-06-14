@@ -20,9 +20,7 @@ const FeedbackSDK = {
       );
     }
     if (!config.dsn) {
-      throw new Error(
-        'FeedbackSDK.init(config) requires a config object with a dsn property.'
-      );
+      throw new Error('FeedbackSDK.init(config) requires a config object with a dsn property.');
     }
     serviceId = config.serviceId;
     dsn = config.dsn.endsWith('/') ? config.dsn.slice(0, -1) : config.dsn;

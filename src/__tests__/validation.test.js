@@ -4,7 +4,7 @@ describe('validateFeedbackData', () => {
   describe('valid data', () => {
     test('should return null for valid minimal data', () => {
       const result = validateFeedbackData({
-        feedbackRating: 'good'
+        feedbackRating: 'good',
       });
       expect(result).toBeNull();
     });
@@ -13,17 +13,17 @@ describe('validateFeedbackData', () => {
       const result = validateFeedbackData({
         feedbackRating: 'normal',
         feedbackComment: 'This is a test comment',
-        durationSec: 30
+        durationSec: 30,
       });
       expect(result).toBeNull();
     });
 
     test('should accept all valid rating values', () => {
       const validRatings = ['good', 'normal', 'bad'];
-      
-      validRatings.forEach(rating => {
+
+      validRatings.forEach((rating) => {
         const result = validateFeedbackData({
-          feedbackRating: rating
+          feedbackRating: rating,
         });
         expect(result).toBeNull();
       });
@@ -32,7 +32,7 @@ describe('validateFeedbackData', () => {
     test('should accept empty comment', () => {
       const result = validateFeedbackData({
         feedbackRating: 'good',
-        feedbackComment: ''
+        feedbackComment: '',
       });
       expect(result).toBeNull();
     });
@@ -41,7 +41,7 @@ describe('validateFeedbackData', () => {
       const maxComment = 'a'.repeat(500);
       const result = validateFeedbackData({
         feedbackRating: 'good',
-        feedbackComment: maxComment
+        feedbackComment: maxComment,
       });
       expect(result).toBeNull();
     });
@@ -49,7 +49,7 @@ describe('validateFeedbackData', () => {
     test('should accept zero duration', () => {
       const result = validateFeedbackData({
         feedbackRating: 'good',
-        durationSec: 0
+        durationSec: 0,
       });
       expect(result).toBeNull();
     });
@@ -60,7 +60,7 @@ describe('validateFeedbackData', () => {
       const result = validateFeedbackData(null);
       expect(result).toMatchObject({
         code: 'INVALID_DATA',
-        message: 'feedbackData must be an object.'
+        message: 'feedbackData must be an object.',
       });
     });
 
@@ -68,18 +68,18 @@ describe('validateFeedbackData', () => {
       const result = validateFeedbackData(undefined);
       expect(result).toMatchObject({
         code: 'INVALID_DATA',
-        message: 'feedbackData must be an object.'
+        message: 'feedbackData must be an object.',
       });
     });
 
     test('should return error for non-object feedbackData', () => {
       const invalidValues = ['string', 123, true, []];
-      
-      invalidValues.forEach(value => {
+
+      invalidValues.forEach((value) => {
         const result = validateFeedbackData(value);
         expect(result).toMatchObject({
           code: 'INVALID_DATA',
-          message: 'feedbackData must be an object.'
+          message: 'feedbackData must be an object.',
         });
       });
     });
@@ -90,30 +90,30 @@ describe('validateFeedbackData', () => {
       const result = validateFeedbackData({});
       expect(result).toMatchObject({
         code: 'INVALID_DATA',
-        message: 'feedbackRating is required and must be "good", "normal", or "bad".'
+        message: 'feedbackRating is required and must be "good", "normal", or "bad".',
       });
     });
 
     test('should return error for null feedbackRating', () => {
       const result = validateFeedbackData({
-        feedbackRating: null
+        feedbackRating: null,
       });
       expect(result).toMatchObject({
         code: 'INVALID_DATA',
-        message: 'feedbackRating is required and must be "good", "normal", or "bad".'
+        message: 'feedbackRating is required and must be "good", "normal", or "bad".',
       });
     });
 
     test('should return error for invalid feedbackRating values', () => {
       const invalidRatings = ['excellent', 'poor', 'ok', 'GOOD', 'Bad', 123, true];
-      
-      invalidRatings.forEach(rating => {
+
+      invalidRatings.forEach((rating) => {
         const result = validateFeedbackData({
-          feedbackRating: rating
+          feedbackRating: rating,
         });
         expect(result).toMatchObject({
           code: 'INVALID_DATA',
-          message: 'feedbackRating is required and must be "good", "normal", or "bad".'
+          message: 'feedbackRating is required and must be "good", "normal", or "bad".',
         });
       });
     });
@@ -122,15 +122,15 @@ describe('validateFeedbackData', () => {
   describe('invalid feedbackComment', () => {
     test('should return error for non-string comment', () => {
       const invalidComments = [123, true, null, [], {}];
-      
-      invalidComments.forEach(comment => {
+
+      invalidComments.forEach((comment) => {
         const result = validateFeedbackData({
           feedbackRating: 'good',
-          feedbackComment: comment
+          feedbackComment: comment,
         });
         expect(result).toMatchObject({
           code: 'INVALID_DATA',
-          message: 'feedbackComment must be a string with a maximum length of 500 characters.'
+          message: 'feedbackComment must be a string with a maximum length of 500 characters.',
         });
       });
     });
@@ -139,11 +139,11 @@ describe('validateFeedbackData', () => {
       const longComment = 'a'.repeat(501);
       const result = validateFeedbackData({
         feedbackRating: 'good',
-        feedbackComment: longComment
+        feedbackComment: longComment,
       });
       expect(result).toMatchObject({
         code: 'INVALID_DATA',
-        message: 'feedbackComment must be a string with a maximum length of 500 characters.'
+        message: 'feedbackComment must be a string with a maximum length of 500 characters.',
       });
     });
   });
@@ -151,15 +151,15 @@ describe('validateFeedbackData', () => {
   describe('invalid durationSec', () => {
     test('should return error for non-number duration', () => {
       const invalidDurations = ['30', true, null, [], {}];
-      
-      invalidDurations.forEach(duration => {
+
+      invalidDurations.forEach((duration) => {
         const result = validateFeedbackData({
           feedbackRating: 'good',
-          durationSec: duration
+          durationSec: duration,
         });
         expect(result).toMatchObject({
           code: 'INVALID_DATA',
-          message: 'durationSec must be a non-negative number.'
+          message: 'durationSec must be a non-negative number.',
         });
       });
     });
@@ -167,12 +167,12 @@ describe('validateFeedbackData', () => {
     test('should return error for negative duration', () => {
       const result = validateFeedbackData({
         feedbackRating: 'good',
-        durationSec: -1
+        durationSec: -1,
       });
       expect(result).toMatchObject({
         code: 'INVALID_DATA',
-        message: 'durationSec must be a non-negative number.'
+        message: 'durationSec must be a non-negative number.',
       });
     });
   });
-}); 
+});

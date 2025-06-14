@@ -46,7 +46,7 @@
 try {
   FeedbackSDK.init({
     serviceId: 'your-unique-service-id', // 您的服務 ID
-    dsn: 'https://your-api-domain.com/api' // 您的 API 基礎路徑
+    dsn: 'https://your-api-domain.com/api', // 您的 API 基礎路徑
   });
 } catch (error) {
   console.error('SDK 初始化失敗:', error.message);
@@ -72,7 +72,7 @@ async function submitFeedback(feedbackData) {
 submitFeedback({
   feedbackRating: 'good',
   feedbackComment: '這個 AI 非常有幫助！',
-  durationSec: 15.5
+  durationSec: 15.5,
 });
 ```
 
@@ -133,4 +133,4 @@ submitFeedback({
 
 ## 授權條款
 
-本專案採用 Apache 2.0 授權。詳細資訊請參閱 [LICENSE](./LICENSE) 檔案。 
+本專案採用 Apache 2.0 授權。詳細資訊請參閱 [LICENSE](./LICENSE) 檔案。

@@ -17,4 +17,4 @@ module.exports = {
     // You can add or override ESLint rules here
     // e.g., 'no-console': 'warn' to warn about console logs instead of failing
   },
-}; 
+};

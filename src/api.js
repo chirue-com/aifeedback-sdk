@@ -48,10 +48,7 @@ export async function performSubmission(dsn, serviceId, feedbackData) {
     if (error.code) {
       throw error;
     } else {
-      throw createError(
-        'SERVER_ERROR',
-        error.message || 'A network error occurred.'
-      );
+      throw createError('SERVER_ERROR', error.message || 'A network error occurred.');
     }
   }
 }
