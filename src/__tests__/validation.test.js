@@ -90,7 +90,7 @@ describe('validateFeedbackData', () => {
       const result = validateFeedbackData({});
       expect(result).toMatchObject({
         code: 'INVALID_DATA',
-        message: 'feedbackRating is required and must be "good", "normal", or "bad".',
+        message: 'feedbackRating is required and must be one of: good, normal, bad.',
       });
     });
 
@@ -100,7 +100,7 @@ describe('validateFeedbackData', () => {
       });
       expect(result).toMatchObject({
         code: 'INVALID_DATA',
-        message: 'feedbackRating is required and must be "good", "normal", or "bad".',
+        message: 'feedbackRating is required and must be one of: good, normal, bad.',
       });
     });
 
@@ -113,7 +113,7 @@ describe('validateFeedbackData', () => {
         });
         expect(result).toMatchObject({
           code: 'INVALID_DATA',
-          message: 'feedbackRating is required and must be "good", "normal", or "bad".',
+          message: 'feedbackRating is required and must be one of: good, normal, bad.',
         });
       });
     });
