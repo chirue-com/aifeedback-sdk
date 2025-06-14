@@ -48,6 +48,7 @@ describe('performSubmission', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ serviceId }),
+        credentials: 'include',
       });
 
       // Verify feedback submission
@@ -55,6 +56,7 @@ describe('performSubmission', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(feedbackData),
+        credentials: 'include',
       });
     });
 
@@ -181,6 +183,7 @@ describe('performSubmission', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify({ serviceId }),
+        credentials: 'include',
       });
     });
 
@@ -201,6 +204,7 @@ describe('performSubmission', () => {
         method: 'POST',
         headers: { 'Content-Type': 'application/json' },
         body: JSON.stringify(feedbackData),
+        credentials: 'include',
       });
     });
   });

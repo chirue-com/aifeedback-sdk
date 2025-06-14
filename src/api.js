@@ -7,6 +7,7 @@ async function requestToken(dsn, serviceId) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify({ serviceId: serviceId }),
+    credentials: 'include',
   });
 
   if (!response.ok) {
@@ -21,6 +22,7 @@ async function submitFeedbackData(dsn, feedbackData) {
       'Content-Type': 'application/json',
     },
     body: JSON.stringify(feedbackData),
+    credentials: 'include',
   });
 
   if (!response.ok) {
