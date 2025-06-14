@@ -52,4 +52,4 @@ const FeedbackSDK = {
   },
 };
 
-export default FeedbackSDK; 
+export default FeedbackSDK;

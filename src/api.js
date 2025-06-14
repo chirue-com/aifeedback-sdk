@@ -54,4 +54,4 @@ export async function performSubmission(dsn, serviceId, feedbackData) {
       );
     }
   }
-} 
+}

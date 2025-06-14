@@ -29,4 +29,4 @@ export async function createErrorFromResponse(response) {
   }
 
   return createError(code, message);
-} 
+}

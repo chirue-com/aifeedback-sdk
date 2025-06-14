@@ -38,4 +38,4 @@ export function validateFeedbackData(feedbackData) {
   }
 
   return null;
-} 
+}
