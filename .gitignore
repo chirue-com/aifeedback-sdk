@@ -2,10 +2,8 @@
 /node_modules
 package-lock.json
 
-# Build output
-/dist
-
 # macOS
 .DS_Store 
 
+# Test
 coverage/
