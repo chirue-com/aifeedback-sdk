@@ -81,7 +81,7 @@ async function submitFeedback(feedbackData) {
 submitFeedback({
   feedbackRating: 'good',
   feedbackComment: 'This AI is very helpful!',
-  durationSec: 15.5,
+  inferenceSec: 15.5,
 });
 ```
 
@@ -104,7 +104,7 @@ Submits the user feedback.
 - `feedbackData` `<Object>` (Required): An object containing the feedback.
   - `feedbackRating` `<string>` (Required): Must be one of `"good"`, `"normal"`, or `"bad"`.
   - `feedbackComment` `<string>` (Optional): A string up to 500 characters.
-  - `durationSec` `<number>` (Optional): A non-negative number representing the interaction duration in seconds.
+  - `inferenceSec` `<number>` (Optional): A non-negative number representing the interaction duration in seconds.
 - **Returns**: `<Promise<Object>>` A promise that resolves with the server's response body on success.
 
 ### Error Handling
