@@ -1,0 +1,8 @@
+# Build output directory
+dist/
+
+# Test coverage directory
+coverage/
+
+# Dependencies
+node_modules/
