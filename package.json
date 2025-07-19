@@ -10,7 +10,8 @@
     "lint:fix": "eslint src/ --fix",
     "format": "prettier --write .",
     "format:check": "prettier --check .",
-    "test": "jest --coverage"
+    "test": "jest --coverage",
+    "sbom:generate": "cyclonedx-npm --output-format XML --output-file sbom.xml"
   },
   "engines": {
     "node": ">=18.0.0",
@@ -25,6 +26,7 @@
   "devDependencies": {
     "@babel/core": "^7.17.0",
     "@babel/preset-env": "^7.27.2",
+    "@cyclonedx/cyclonedx-npm": "^4.0.0",
     "babel-jest": "^30.0.0",
     "babel-loader": "^8.2.3",
     "eslint": "^8.9.0",
