@@ -6,3 +6,9 @@ coverage/
 
 # Dependencies
 node_modules/
+
+# SBOM
+sbom.xml
+
+# Demo
+demo.html
