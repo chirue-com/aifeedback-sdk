@@ -8,8 +8,8 @@
     <script src="./dist/feedback-sdk.min.js"></script>
     <style>
       body {
-        font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial,
-          sans-serif;
+        font-family:
+          -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
         margin: 0;
         background-color: #f4f4f8;
         display: flex;
@@ -181,7 +181,9 @@
         <div class="message user-message">嗨，我想查詢我的訂單狀態。</div>
         <div class="message bot-message">好的，請提供您的訂單編號。</div>
         <div class="message user-message">我的訂單編號是 #AIF-12345。</div>
-        <div class="message bot-message">感謝您。查詢到您的訂單已於今天上午出貨，預計明天會送達。</div>
+        <div class="message bot-message">
+          感謝您。查詢到您的訂單已於今天上午出貨，預計明天會送達。
+        </div>
         <div class="message bot-message">
           請問這次的服務您還滿意嗎？請給我一點回饋！
           <div class="feedback-section">
@@ -211,7 +213,10 @@
         try {
           // 請替換為您服務的 serviceId 與 DSN
           const serviceId = prompt('請輸入 serviceId', 'test');
-          const dsn = prompt('請輸入 API Host', 'https://aifeedback-backend-465639248513.asia-east1.run.app');
+          const dsn = prompt(
+            '請輸入 API Host',
+            'https://aifeedback-backend-465639248513.asia-east1.run.app'
+          );
 
           if (!serviceId || !dsn) {
             throw new Error('未提供 serviceId 或 API Host');
