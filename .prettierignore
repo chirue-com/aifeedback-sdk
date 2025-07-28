@@ -11,4 +11,4 @@ node_modules/
 sbom.xml
 
 # Demo
-demo.html
+demo/
