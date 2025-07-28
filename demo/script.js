@@ -2,9 +2,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const chatMessages = document.querySelector('.chat-messages');
   chatMessages.scrollTop = chatMessages.scrollHeight;
 
-  // 2. 初始化模組
   try {
-    // 請替換為您服務的 serviceId 與 DSN
     const serviceId = prompt('請輸入 serviceId', 'demo');
     const dsn = prompt(
       '請輸入 API Host',
@@ -63,7 +61,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const feedback = {
       feedbackRating: selectedRating,
       feedbackComment: comment,
-      inferenceSec: Math.round(Math.random() * 20) + 5, // 模擬 5-25 秒的對話時間
+      inferenceSec: Math.round(Math.random() * 20) + 5,
     };
     submitFeedback(feedback);
   });
@@ -77,13 +75,11 @@ document.addEventListener('DOMContentLoaded', () => {
     submitBtn.classList.remove('success', 'error');
 
     try {
-      // 3. 呼叫 submit function
       const result = await window.FeedbackSDK.submit(feedbackData);
       console.log('提交成功:', result);
       submitBtn.textContent = '回饋已成功送出！';
       submitBtn.classList.add('success');
 
-      // 提交成功後可重設介面
       setTimeout(() => {
         submitBtn.disabled = false;
         submitBtn.textContent = originalBtnText;
